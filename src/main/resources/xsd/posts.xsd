@@ -1,0 +1,30 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://bptn.com/soap"
+           targetNamespace="http://bptn.com/soap" elementFormDefault="qualified">
+
+    <!-- <xs:include schemaLocation="users.xsd" />-->
+
+    <xs:element name="getUserPostsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="username" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getUserPostsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="posts" type="tns:post" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+               
+    <xs:complexType name="post">
+        <xs:sequence>
+            <xs:element name="postID" type="xs:string"/>
+            <xs:element name="postType" type="xs:string"/>
+            <xs:element name="post" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+  
+</xs:schema>
